@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grasping Point Detection</title>
+  <meta name="description" content="Project page for Grasping Point Detection by Bobobs." />
+  <link rel="icon" type="image/x-icon" href="static/images/dataset.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:#0e1220;color:#e9eef9;line-height:1.6}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{padding:72px 0;background:linear-gradient(180deg,#0e1220,#121625)}
+    h1{color:#fff;font-size:clamp(28px,6vw,56px);margin:0 0 10px}
+    p.lead{color:#cfd7e6;font-size:clamp(16px,2.6vw,20px);margin:0}
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:#1a2a4a;color:#e6eefb;text-decoration:none;border:1px solid #24385f}
+    section{padding:32px 0}
+    .grid{display:grid;gap:18px}
+    @media(min-width:900px){.grid.cols-2{grid-template-columns:2fr 1fr}.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{background:#0e1424;color:#e9eef9;border:1px solid #1b2a4a;border-radius:16px;padding:18px}
+    pre.code{background:#0a1020;padding:14px;border-radius:12px;overflow:auto;border:1px solid #1b2a4a}
+    footer{border-top:1px solid #1b2a4a;color:#97a6c3;padding:28px 0}
+    img,video{width:100%;max-width:100%;border-radius:12px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Grasping Point Detection</h1>
+      <p class="lead">Exploring dataset characteristics and grasping directions with visual demonstrations.</p>
+      <div class="btns">
+        <a class="btn" href="#dataset">📊 Dataset</a>
+        <a class="btn" href="#results">🖼️ Results</a>
+        <a class="btn" href="#video">🎬 Video</a>
+        <a class="btn" href="#timelines">⏱️ Timelines</a>
+        <a class="btn" href="#method">📘 Overview</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="dataset">
+    <div class="wrap grid cols-2">
+      <div class="card">
+        <h2>Dataset</h2>
+        <img src="static/images/dataset.png" alt="Dataset overview" />
+        <p>This image illustrates the dataset used in our experiments.</p>
+      </div>
+      <div class="card">
+        <h2>Grasping Direction</h2>
+        <img src="static/images/grasping_direction.jpg" alt="Grasping direction visualization" style="max-width:80%" />
+        <p>This figure shows examples of grasping directions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="wrap">
+      <h2>Cluttered Scene Demo</h2>
+      <video controls loop muted playsinline preload="metadata" poster="static/images/dataset.png">
+        <source src="static/videos/cluttered.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p>Demonstration of grasping point detection in a cluttered environment.</p>
+    </div>
+  </section>
+
+  <section id="timelines">
+    <div class="wrap">
+      <h2>Timelines</h2>
+      <p class="lead">Additional demo clips showing temporal behavior. All videos match the size of the cluttered demo.</p>
+
+      <h3>Timeline 1</h3>
+      <video controls loop muted playsinline preload="metadata" poster="static/images/dataset.png">
+        <source src="static/videos/Timeline%201.mp4" type="video/mp4" />
+      </video>
+
+      <h3>Timeline 2</h3>
+      <video controls loop muted playsinline preload="metadata" poster="static/images/dataset.png">
+        <source src="static/videos/Timeline%202.mp4" type="video/mp4" />
+      </video>
+
+      <h3>Timeline 3</h3>
+      <video controls loop muted playsinline preload="metadata" poster="static/images/dataset.png">
+        <source src="static/videos/Timeline%203.mp4" type="video/mp4" />
+      </video>
+
+      <h3>Timeline 4</h3>
+      <video controls loop muted playsinline preload="metadata" poster="static/images/dataset.png">
+        <source src="static/videos/Timeline%204.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </section>
+
+  <section id="method">
+    <div class="wrap">
+      <h2>Overview</h2>
+      <p>
+        In this work, we propose a new framework that
+        leverages semantic segmentation of clothes to further detect
+        optimal grasping points directly from RGB-D images. Our
+        framework involves a novel neural network architecture that
+        fuses self-attention and convolutional operations to extract potent
+        RGB-D features, facilitating the semantic segmentation of cloth
+        inner/outer edges and corners. The framework then couples a
+        hierarchy of these semantic features with corresponding depth
+        cues to identify the best grasping point candidates based on both
+        geometric and depth information. To evaluate the performance
+        of our framework, we introduce a novel RGB-D garment dataset
+        containing 298 RGB-D images of 12 distinct textile objects
+        annotated with corners and inner/outer edges. We benchmarked
+        the performance of our model against the state-of-the-art models
+        on both our own and the NYU Depth v2 datasets. Our model
+        surpasses the baseline by 1.1% on NYU Depth V2 and 0.95% on
+        our dataset. Our extensive experiments with a Kinova robotic
+        arm showed that in cluttered scenes, our proposed method can
+        achieve up to 27% higher grasping success than the baseline
+        model.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>© <span id="year"></span> Bobobs · Grasping Point Detection Project Page</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
